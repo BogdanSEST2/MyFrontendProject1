@@ -1,0 +1,28 @@
+services:
+  frontend:
+    image: frontend-part-image
+    container_name: frontend-part-container
+    build:
+      context: ./1st_react_web_app
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    volumes:
+      - ./1st_react_web_app:/app
+
+  backend:
+    image: backend-part-image
+    container_name: backend-part-container
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./backend:/app
+      - ./backend/data.json:/app/data.json
+    environment:
+      - PORT=5000
+

@@ -1,0 +1,7 @@
+/node_modules
+/data.json
+.git
+npm-debug.log
+.env
+
+# .dockerignore, отвечающий за бэк
